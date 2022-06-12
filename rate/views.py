@@ -18,7 +18,8 @@ def register_request(request):
     form = Registration()
     return render(request, template_name="auth/register.html", context={"register_form": form})
 
-def login(request):
+
+def login_request(request):
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')

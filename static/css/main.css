@@ -9,6 +9,12 @@
     background-position: center;
     height: 100vh;
   }
+  .sign-image{
+    background-image: url('../assets/login.svg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
   .login {
     min-height: 100vh;
     background-color: #F0F3BD;
@@ -22,3 +28,4 @@
     background-color: transparent !important;
     color: #028090 !important;
   }
+  
