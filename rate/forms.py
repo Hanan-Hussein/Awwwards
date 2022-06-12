@@ -26,16 +26,16 @@ class Registration(UserCreationForm):
             user.save()
         return user
 
-# class LoginForm(forms.ModelForm):
+class LoginForm(forms.ModelForm):
 
-#     username = forms.CharField(max_length=80)
-#     password = forms.CharField(widget=forms.PasswordInput())
-#     # required_css_class = 'required d-none'
-#     username.widget.attrs.update(
-#         {'class': 'form-control m-2 w-75 input-val', 'placeholder': 'Username'})
-#     password.widget.attrs.update(
-#         {'class': 'form-control m-2 w-75 input-val', 'placeholder': 'Password'})
+    username = forms.CharField(max_length=80)
+    password = forms.CharField(widget=forms.PasswordInput())
+    # required_css_class = 'required d-none'
+    username.widget.attrs.update(
+        {'class': 'form-control m-2 w-75 input-val bg-transparent' , 'placeholder': 'Username'})
+    password.widget.attrs.update(
+        {'class': 'form-control m-2 w-75 input-val bg-transparent', 'placeholder': 'Password'})
 
-#     class Meta:
-#         model = Profile
-#         fields = ('username', 'password')
+    class Meta:
+        model = Profile
+        fields = ('username', 'password')
