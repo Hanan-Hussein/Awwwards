@@ -2,7 +2,7 @@ from dataclasses import field
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import Profile, Project
 
 
 class Registration(UserCreationForm):
@@ -39,3 +39,18 @@ class LoginForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('username', 'password')
+
+class SubmitForm(forms.ModelForm):
+
+    class Meta:
+        model = Project
+        fields = ('title', 'description', 'site_url', 'landing_page')
+
+    def __init__(self, *args, **kwargs):
+        super(SubmitForm, self).__init__(*args, **kwargs)
+        self.fields['title'].widget.attrs['class'] = ' input-val m-2 form-control'
+        self.fields['description'].widget.attrs.update({'class': 'input-val m-2 form-control','rows':'5'})
+        self.fields['site_url'].widget.attrs['class'] = 'input-val m-2 form-control'
+        self.fields['landing_page'].widget.attrs['class'] = 'input-val m-2 form-control'
+
+   
