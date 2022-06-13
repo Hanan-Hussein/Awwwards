@@ -1,0 +1,42 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg bg-white border sticky-top" role="navigation">
+<div class="container-fluid">
+   <div class="container-fluid  d-flex justify-content-around align-items-center nav-sc">
+   <div>
+    <a class="navbar-brand insta fs-3" href="{%url "home" %}">Marbles</a>
+   </div>
+      
+    <div class="d-flex justify-content-around align-items-center">
+        <ul class="navbar-nav  me-auto mb-2 icons-nav">
+      
+            <li class="nav-item ">
+                <a href="{% url 'home'%}">
+                    Post your work
+                </a>
+            </li>
+         
+           
+            <li class="nav-item">
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div class="bit-img">
+                      {% if user_display.profile.profilephoto %}
+                      <img src="{{user_display.profile.profilephoto.url}}" alt="" class="img-resp">
+                      {% else %}
+                      <img src="{% static "han.png"%}"  alt="" class="img-resp">
+                      {% endif %}
+                  </div>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="{%url "home" %}">Profile</a></li>
+                  <li><a class="dropdown-item" href="{%url "home" %}">Log out</a></li>
+                </ul>
+              </li>
+        </ul>
+    </div>
+</div>
+</div>
+
+
+</nav>

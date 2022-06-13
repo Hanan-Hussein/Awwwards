@@ -29,3 +29,9 @@
     color: #028090 !important;
   }
   
+.nav-sc {
+  flex: 1 1 0 !important;
+}
+.navbar-nav{
+  flex-direction: row !important;
+}
