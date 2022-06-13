@@ -1,9 +1,11 @@
 from django.shortcuts import render
-from .forms import Registration, LoginForm
+from .forms import Registration, LoginForm, SubmitForm
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
+from .models import Project
+
 
 # Create your views here.
 @login_required
@@ -39,3 +41,26 @@ def login_request(request):
         "form": form,
     }
     return render(request, 'auth/login.html', context=context)
+
+
+@login_required
+def submit_request(request):
+    if request.method == "POST":
+        form = SubmitForm(request.POST, request.FILES)
+        if form.is_valid():
+            title = form.cleaned_data["title"]
+            description =form.cleaned_data["description"]
+            site_url = form.cleaned_data["site_url"]
+            landing_page = form.cleaned_data["landing_page"]
+            new_project = Project(title=title, description=description,site_url=site_url)
+            new_project.landing_page = landing_page
+            new_project.owner = request.user
+            new_project.save()
+            messages.success(request,"Project uploaded successfully 🎊👏🏽") 
+            return redirect('home')
+    
+    form = SubmitForm()
+    context = {
+        "form": form,
+    }
+    return render(request, 'submit.html',context=context)
