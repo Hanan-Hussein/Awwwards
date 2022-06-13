@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import render
 from .forms import Registration, LoginForm, SubmitForm
 from django.contrib import messages
@@ -10,7 +11,8 @@ from .models import Project
 # Create your views here.
 @login_required
 def home(request):
-    return render(request,'home.html')
+    projects=Project.objects.all()
+    return render(request,'home.html',context={"projects":projects})
 
 def register_request(request):
     if request.method == "POST":

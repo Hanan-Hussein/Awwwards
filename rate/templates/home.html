@@ -5,8 +5,21 @@
 {% block content %}
 {% include "nav.html" %}
 
-<div class="bg-cover">
+<!-- <div class="bg-cover">
     <img src="../../static/test.png" style="width: 100vw; height:80vh;" alt="">
+</div> -->
+
+<div class="container">
+    <p class="h4 my-3">Rate Projects</p>
+    <div class="row">
+       {% for pro in projects %}
+       <div class="col-md-4">
+        <img src="{{pro.landing_page.url}}" class="img-fluid" alt="">
+        <p class="h5 pro-title my-3">{{pro.title}}</p>
+            
+        </div>
+       {% endfor %}
+    </div>
 </div>
 
 {% endblock content %}

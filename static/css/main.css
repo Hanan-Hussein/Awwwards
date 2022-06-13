@@ -52,11 +52,11 @@
     100px 100px 194px -44px rgba(0, 0, 0, 0.07);
 }
 
-.submit-page {
+/* .submit-page {
   height: 100vh !important;
   width: 100vw !important;
   position: relative !important;
-}
+} */
 .submit-btn{
   width: 100% !important;
 }
@@ -68,4 +68,7 @@
 }
 .form-control:focus{
    border-color: #008090 !important;
+}
+.pro-title{
+  letter-spacing: 5px;
 }
