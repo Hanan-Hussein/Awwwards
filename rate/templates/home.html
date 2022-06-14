@@ -14,7 +14,10 @@
     <div class="row">
        {% for pro in projects %}
        <div class="col-md-4">
-        <img src="{{pro.landing_page.url}}" class="img-fluid" alt="">
+        <a href="{%url 'details' pro.id%}">
+            <img src="{{pro.landing_page.url}}" class="img-fluid" alt="">
+
+        </a>
         <p class="h5 pro-title my-3">{{pro.title}}</p>
             
         </div>

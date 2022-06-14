@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 .login-image{
     background-image: url('../assets/register.svg');
@@ -29,12 +30,7 @@
     color: #028090 !important;
   }
   
-.nav-sc {
-  flex: 1 1 0 !important;
-}
-.navbar-nav{
-  flex-direction: row !important;
-}
+
 
 .submit-form {
   position: absolute;
@@ -71,4 +67,43 @@
 }
 .pro-title{
   letter-spacing: 5px;
+}
+.logoText{
+  letter-spacing: 5px;
+
+  background: linear-gradient(180deg, #02C39A 0%, rgba(2, 195, 154, 0) 23.96%, #02BC89 46.88%, #028090 67.71%, #00A896 91.67%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+.bit-img {
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 2rem;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 2rem;
+}
+.img-resp {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.navbar{
+  --bs-navbar-padding-y:0.3rem !important;
+}
+.deet{
+  object-fit: cover;
+  opacity: 0.5;
+
+
+}
+header {
+  height: 80vh;
+  width: 100vw;
+  background: black;
 }

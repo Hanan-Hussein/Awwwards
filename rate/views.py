@@ -66,3 +66,10 @@ def submit_request(request):
         "form": form,
     }
     return render(request, 'submit.html',context=context)
+
+
+@login_required
+def project_detail(request,id):
+    projects=Project.objects.get(id=id)
+    print(projects.title)
+    return render(request, 'details.html',context={"projects":projects})
