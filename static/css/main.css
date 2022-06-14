@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 .login-image{
     background-image: url('../assets/register.svg');
@@ -99,11 +98,19 @@
 .deet{
   object-fit: cover;
   opacity: 0.5;
+  height: 80vh;
+  width: 100vw;
+
 
 
 }
 header {
   height: 80vh;
-  width: 100vw;
+  /* width: 100vw; */
   background: black;
+  overflow-x: hidden;
+
+}
+.details-page{
+  overflow-x: hidden;
 }
