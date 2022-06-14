@@ -114,3 +114,19 @@ header {
 .details-page{
   overflow-x: hidden;
 }
+.btn-details{
+  position: absolute;
+  right: 10%;
+  top: 90%;
+  transform: translate(-10%, -50%);
+}
+
+.rating{
+  background-color: #00A896;
+  
+}
+.rating:hover, .rating p:hover{
+  background-color: #F0F3BD;
+  color:#000000 !important;
+
+}
