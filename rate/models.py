@@ -34,3 +34,10 @@ class Project(models.Model):
     
     def __str__(self) -> str:
         return self.title
+
+class Ratings(models.Model):
+    design=models.ForeignKey(Project,related_name="design",null=True,on_delete=models.CASCADE)
+    usability=models.ForeignKey(Project,related_name="usability",null=True,on_delete=models.CASCADE)
+    content=models.ForeignKey(Project,related_name="content",null=True,on_delete=models.CASCADE)
+    user=models.ForeignKey(User,related_name="users",null=True,on_delete=models.CASCADE)
+
