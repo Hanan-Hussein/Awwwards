@@ -1,5 +1,4 @@
-from multiprocessing import context
-import re
+
 from django.shortcuts import render
 from .forms import Registration, LoginForm, SubmitForm
 from django.contrib import messages
@@ -77,8 +76,9 @@ def submit_request(request):
 @login_required
 def project_detail(request,id):
     projects=Project.objects.get(id=id)
+    reviews = Ratings.objects.filter(project=projects)
     print(projects.title)
-    return render(request, 'details.html',context={"projects":projects})
+    return render(request, 'details.html',context={"projects":projects,'ratings':reviews} )
 
 @login_required
 def project_search(request):
@@ -130,9 +130,3 @@ def project_ratings(request, project_id):
     print(rating)
     print(Ratings.objects.all().filter(project__id=project_id))
     return HttpResponse()
-
-
-def logout_request(request):
-    logout(request)
-    return redirect('login')
-

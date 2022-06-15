@@ -12,11 +12,4 @@ urlpatterns = [
     path("projects",views.project_list,name='projects'),
     path("all_users",views.all_users,name='allUsers'),
     path('ratings/<project_id>', views.project_ratings,name='ratings'),
-    path('logout', views.logout_request, name='logout'),
-
-
-    
-
-
-
 ]

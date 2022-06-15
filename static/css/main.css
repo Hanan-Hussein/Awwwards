@@ -3,32 +3,37 @@
   padding: 0;
   box-sizing: border-box;
 }
-.login-image{
-    background-image: url('../assets/register.svg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-  }
-  .sign-image{
-    background-image: url('../assets/login.svg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-  }
-  .login {
-    min-height: 100vh;
-    background-color: #F0F3BD;
-  }
-  .signup {
-    background-color: #028090 !important;
-    border-color: none !important;
-  }
-  .signin_reg{
-    border-color: #028090 !important;
-    background-color: transparent !important;
-    color: #028090 !important;
-  }
-  
+
+.login-image {
+  background-image: url('../assets/register.svg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.sign-image {
+  background-image: url('../assets/login.svg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.login {
+  min-height: 100vh;
+  background-color: #F0F3BD;
+}
+
+.signup {
+  background-color: #028090 !important;
+  border-color: none !important;
+}
+
+.signin_reg {
+  border-color: #028090 !important;
+  background-color: transparent !important;
+  color: #028090 !important;
+}
+
 
 
 .submit-form {
@@ -52,22 +57,31 @@
   width: 100vw !important;
   position: relative !important;
 } */
-.submit-btn{
+.submit-btn {
   width: 100% !important;
 }
+
 .form-control,
 .form-control:focus,
-.form-control:focus-visible {
-    outline: none !important;
-    box-shadow: none !important;
+.form-control:focus-visible,
+.btn,
+.btn:focus,
+.btn:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
 }
-.form-control:focus{
-   border-color: #008090 !important;
+
+.form-control:focus,
+.btn:focus,
+.btn {
+  border-color: #008090 !important;
 }
-.pro-title{
+
+.pro-title {
   letter-spacing: 5px;
 }
-.logoText{
+
+.logoText {
   letter-spacing: 5px;
 
   background: linear-gradient(180deg, #02C39A 0%, rgba(2, 195, 154, 0) 23.96%, #02BC89 46.88%, #028090 67.71%, #00A896 91.67%);
@@ -76,6 +90,7 @@
   background-clip: text;
   color: transparent;
 }
+
 .bit-img {
   border-radius: 50%;
   box-sizing: border-box;
@@ -85,6 +100,7 @@
   position: relative;
   width: 2rem;
 }
+
 .img-resp {
   height: 100%;
   left: 0;
@@ -92,10 +108,12 @@
   top: 0;
   width: 100%;
 }
-.navbar{
-  --bs-navbar-padding-y:0.3rem !important;
+
+.navbar {
+  --bs-navbar-padding-y: 0.3rem !important;
 }
-.deet{
+
+.deet {
   object-fit: cover;
   opacity: 0.5;
   height: 80vh;
@@ -104,6 +122,7 @@
 
 
 }
+
 header {
   height: 80vh;
   /* width: 100vw; */
@@ -111,49 +130,62 @@ header {
   overflow-x: hidden;
 
 }
-.details-page{
+
+.details-page {
   overflow-x: hidden;
 }
-.btn-details{
+
+.btn-details {
   position: absolute;
   right: 10%;
   top: 90%;
   transform: translate(-10%, -50%);
 }
-.rate{
+
+.rate {
   position: absolute;
-  left: 60%;
-  top: 50%;
+  left: 55%;
+  top: 40%;
   transform: translate(-60%, -50%);
 }
-.rate2{
+
+.rate2 {
   position: absolute;
-  left: 60%;
-  top: 60%;
+  left: 55%;
+  top: 50%;
   transform: translate(-60%, -60%);
 }
-.rate3{
+
+.rate3 {
   position: absolute;
-  left: 60%;
-  top: 70%;
+  left: 55%;
+  top: 60%;
   transform: translate(-60%, -70%);
 }
-.allrates{
+
+.allrates {
   display: none;
 }
 
-.rating{
+.rating {
   background-color: #00A896;
   width: 5vw;
   display: flex;
-  justify-content:center;
-  padding: 0.5rem 1rem ;
+  justify-content: center;
+  padding: 0.5rem 1rem;
 }
+
 .rating p {
   margin-bottom: 0 !important;
 }
-.rating:hover, .rating p:hover{
-  background-color: #F0F3BD;
-  color:#000000 !important;
 
+.rating:hover,
+.rating p:hover {
+  background-color: #F0F3BD;
+  color: #000000 !important;
+
+}
+
+.bg-cover {
+  position: relative;
 }
