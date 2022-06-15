@@ -53,4 +53,21 @@ class SubmitForm(forms.ModelForm):
         self.fields['site_url'].widget.attrs['class'] = 'input-val m-2 form-control'
         self.fields['landing_page'].widget.attrs['class'] = 'input-val m-2 form-control'
 
+class ProfileEditForm(forms.ModelForm):
+    username = forms.CharField(max_length=50)
+    email = forms.EmailField()
+    bio = forms.CharField(max_length=50,widget=forms.Textarea)
+    profilephoto = forms.ImageField()
+    
+    class Meta:
+        model = Profile
+        fields = ('username', 'profilephoto', 'bio','email')
+    username.widget.attrs.update(
+        {'class': 'form-control m-2  input-val', 'placeholder': 'Username'})
+    email.widget.attrs.update(
+        {'class': 'form-control m-2  input-val', 'placeholder': 'Email'})
+    profilephoto.widget.attrs.update(
+        {'class': 'form-control m-2  input-val', 'placeholder': 'Profile Photo'})
+    bio.widget.attrs.update(
+        {'class': 'form-control m-2  input-val', 'placeholder': 'Enter bio','rows':4, 'cols':40})
    

@@ -22,7 +22,7 @@
                     <div class="d-flex align-items-center justify-content-start">
                         <p class="h2 me-3">{{user_details}}</p>
                         {% if request.path == '/profile' %}
-                        <a href="">
+                        <a href="{%url 'profile_edit' %}">
                             <div class="btn btn-outline btn-sm">Edit Profile</div>
                         </a>
                         {% endif %}
@@ -53,7 +53,7 @@
                     {% if request.path == '/profile' %}
                     Posts
                     {% else %}
-                    <a href="{%url 'profile' %}" class="lead me-3 text-decoration-none text-dark">Posts </a>
+                    <a href="{%url 'profile_edit' %}" class="lead me-3 text-decoration-none text-dark">Posts </a>
                     Edit Profile
                     {% endif %}
                 </p>
@@ -63,7 +63,7 @@
                         {% for post in posts %}
                         <div class="col-md-4">
                             <div class="card" >
-                                <a href="">
+                                <a href="{%url 'details' post.id%}">
                                     <img class="card-img-top img-fluid img-responsive" src="{{post.landing_page.url}}" alt="Card image cap">
                                 </a>                            </div>
                         </div>

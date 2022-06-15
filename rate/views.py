@@ -1,6 +1,6 @@
 
 from django.shortcuts import render
-from .forms import Registration, LoginForm, SubmitForm
+from .forms import Registration, LoginForm, SubmitForm, ProfileEditForm
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
@@ -17,7 +17,9 @@ from django.views.decorators.csrf import csrf_exempt
 @login_required
 def home(request):
     projects=Project.objects.all()
-    return render(request,'home.html',context={"projects":projects})
+    user_display = request.user
+
+    return render(request,'home.html',context={"projects":projects,"user_display":user_display})
 
 def register_request(request):
     if request.method == "POST":
@@ -52,6 +54,8 @@ def login_request(request):
 
 @login_required
 def submit_request(request):
+    user_display = request.user
+
     if request.method == "POST":
         form = SubmitForm(request.POST, request.FILES)
         if form.is_valid():
@@ -69,6 +73,7 @@ def submit_request(request):
     form = SubmitForm()
     context = {
         "form": form,
+        "user_display":user_display
     }
     return render(request, 'submit.html',context=context)
 
@@ -76,19 +81,23 @@ def submit_request(request):
 @login_required
 def project_detail(request,id):
     projects=Project.objects.get(id=id)
+    user_display = request.user
+
     reviews = Ratings.objects.filter(project=projects)
     print(projects.title)
-    return render(request, 'details.html',context={"projects":projects,'ratings':reviews} )
+    return render(request, 'details.html',context={"projects":projects,'ratings':reviews,'user_display':user_display} )
 
 @login_required
 def project_search(request):
     projects=Project.objects.all()
     if 'name' in request.GET and request.GET['name']:
         searched_term = request.GET['name']
+        user_display = request.user
+
         searched = Project.search_project(searched_term)
         message = f"{searched_term}"
      
-        return render(request, 'search_results.html', {"message": message, 'searched': searched})
+        return render(request, 'search_results.html', {"message": message, 'searched': searched, 'user_display':user_display})
     else:
         message = "You haven't searched for any term"
         return render(request, 'search_results.html', {"message": message})
@@ -143,9 +152,41 @@ def profile(request):
     context = {
     "user_details": current_user,
     "user_display": user_display,
-    "posts": posts
+    "posts": posts,
+    'number': len(Project.objects.all().filter(owner=request.user.id)),
+
 
     }
     return render(request,'profile.html', context=context)
 
 
+@login_required
+def profile_edit(request):
+    user_display = request.user
+
+    if request.method == 'POST':
+        form = ProfileEditForm(request.POST, request.FILES)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            email = form.cleaned_data['email']
+            bio = form.cleaned_data['bio']
+            profilephoto = form.cleaned_data['profilephoto']
+            profile = Profile.objects.get(id=request.user.id)
+            profile.profilephoto = profilephoto
+            profile.bio = bio
+            profile.save()
+            User.objects.filter(id=request.user.id).update(
+                email=email, username=username)
+            return redirect('profile')
+    current_user = request.user
+    user_profile = Profile.objects.all().filter(
+        user=current_user).first()
+    form = ProfileEditForm()
+    context = {
+        "user_details": user_display,
+        "form": form,
+        "user_display": user_display,
+        'number': len(Project.objects.all().filter(owner=request.user.id)),
+       
+    }
+    return render(request, 'profile_edit.html', context=context)

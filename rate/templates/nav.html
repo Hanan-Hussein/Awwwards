@@ -5,7 +5,7 @@
       </p>
   </a>
   
-    <nav class="navbar navbar-expand-md navbar-dark">
+    <nav class="navbar navbar-expand-md navbar-light">
 
         <button class="navbar-toggler "  type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"`
             aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
@@ -18,7 +18,7 @@
   
     <ul class="navbar-nav mx-5 ">
         <form action="{%url 'searchResults' %}" role="search" class="mx-5 my-1">
-            <input class="form-control me-2 " type="search" placeholder="Search for users" aria-label="Search" name="name">
+            <input class="form-control me-2 " type="search" placeholder="Search for projects" aria-label="Search" name="name">
         </form>
         <li class="nav-item ">
             <a class="nav-link text-dark" href="{%url 'submit'%}">Post Your Work</a>
@@ -29,8 +29,8 @@
         <li class="nav-item dropdown ">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <div class="bit-img">
-                  {% if user_display.profile.profilephoto %}
-                  <img src="{{user_display.profile.profilephoto.url}}" alt="" class="img-resp">
+                  {% if user_display.profiles.profilephoto %}
+                  <img src="{{user_display.profiles.profilephoto.url}}" alt="" class="img-resp">
                   {% else %}
                   <img src="{% static "profile.jpeg"%}"  alt="" class="img-resp">
                   {% endif %}

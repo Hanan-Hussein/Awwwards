@@ -1,3 +1,28 @@
+.full-page {
+  width: 100vw !important;
+  height: 100vh !important;
+  overflow-y: scroll !important;
+  /* position: fixed !important; */
+}
+
+::-webkit-scrollbar {
+  display: none !important;
+}
+::-webkit-scrollbar {
+  display: none !important;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.scroll {
+  overflow-y: scroll !important;
+  height: 87vh !important;
+}
+
+.upload-height {
+  height: 80vh !important;
+}
 * {
   margin: 0;
   padding: 0;
@@ -36,7 +61,7 @@
 
 
 
-.submit-form {
+/* .submit-form {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -50,7 +75,7 @@
     26.5px 26.5px 74.2px -44px rgba(0, 0, 0, 0.044),
     46.2px 46.2px 122.8px -44px rgba(0, 0, 0, 0.052),
     100px 100px 194px -44px rgba(0, 0, 0, 0.07);
-}
+} */
 
 /* .submit-page {
   height: 100vh !important;
@@ -185,7 +210,9 @@ header {
   color: #000000 !important;
 
 }
-
+.label-profile {
+    display: none !important;
+}
 .bg-cover {
   position: relative;
 }
@@ -198,4 +225,10 @@ header {
   overflow: hidden;
   position: relative;
   width: 10rem;
+}
+
+@media only screen and (max-width: 600px){
+  .img-div{
+    display:none
+  }
 }

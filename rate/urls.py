@@ -14,6 +14,8 @@ urlpatterns = [
     path('ratings/<project_id>', views.project_ratings,name='ratings'),
     path('logout', views.logout_request, name='logout'),
     path('profile', views.profile, name='profile'),
+    path('profile/edit', views.profile_edit, name='profile_edit'),
+
 
 
 
