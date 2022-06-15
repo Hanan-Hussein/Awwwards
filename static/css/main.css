@@ -120,9 +120,31 @@ header {
   top: 90%;
   transform: translate(-10%, -50%);
 }
+.rate{
+  position: absolute;
+  left: 60%;
+  top: 50%;
+  transform: translate(-60%, -50%);
+}
+.rate2{
+  position: absolute;
+  left: 60%;
+  top: 60%;
+  transform: translate(-60%, -60%);
+}
+.rate3{
+  position: absolute;
+  left: 60%;
+  top: 70%;
+  transform: translate(-60%, -70%);
+}
+.allrates{
+  display: none;
+}
 
 .rating{
   background-color: #00A896;
+  width: 5vw;
   
 }
 .rating:hover, .rating p:hover{

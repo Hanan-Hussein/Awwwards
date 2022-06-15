@@ -73,3 +73,16 @@ def project_detail(request,id):
     projects=Project.objects.get(id=id)
     print(projects.title)
     return render(request, 'details.html',context={"projects":projects})
+
+@login_required
+def project_search(request):
+    projects=Project.objects.all()
+    if 'name' in request.GET and request.GET['name']:
+        searched_term = request.GET['name']
+        searched = Project.search_project(searched_term)
+        message = f"{searched_term}"
+     
+        return render(request, 'search_results.html', {"message": message, 'searched': searched})
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search_results.html', {"message": message})

@@ -17,8 +17,8 @@
       
   
     <ul class="navbar-nav mx-5 ">
-        <form action="" role="search" class="mx-5 my-1">
-            <input class="form-control me-2 " type="search" placeholder="Search for users" aria-label="Search" name="username">
+        <form action="{%url 'searchResults' %}" role="search" class="mx-5 my-1">
+            <input class="form-control me-2 " type="search" placeholder="Search for users" aria-label="Search" name="name">
         </form>
         <li class="nav-item ">
             <a class="nav-link text-dark" href="{%url 'submit'%}">Post Your Work</a>
