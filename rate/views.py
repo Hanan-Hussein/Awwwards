@@ -111,10 +111,11 @@ def all_users(request):
 
 @csrf_exempt
 def project_ratings(request, project_id):
-    current_user = request.user.id
+    current_user = request.user
+    project=Project.objects.all().get(id=project_id)
     # Returns a tuple the object is in the first position
     rating = Ratings.objects.get_or_create(
-        user__id=current_user, project__id=project_id)[0]
+        user=current_user, project=project)[0]
     type = request.POST.get('type')
     value = request.POST.get('value')
     if type == 'usability':
