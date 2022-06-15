@@ -32,13 +32,13 @@
                   {% if user_display.profile.profilephoto %}
                   <img src="{{user_display.profile.profilephoto.url}}" alt="" class="img-resp">
                   {% else %}
-                  <img src="{% static "profile.jpeg"%}"  alt="" class="img-resp">
+                  <img src="{% static 'profile.jpeg'%}"  alt="" class="img-resp">
                   {% endif %}
               </div>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="{%url "home" %}">Profile</a></li>
-              <li><a class="dropdown-item" href="{%url "home" %}">Log out</a></li>
+              <li><a class="dropdown-item" href="{%url 'home' %}">Profile</a></li>
+              <li><a class="dropdown-item" href="{%url 'logout' %}">Log out</a></li>
             </ul>
           </li>
     </ul>

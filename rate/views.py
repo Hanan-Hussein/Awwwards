@@ -130,3 +130,9 @@ def project_ratings(request, project_id):
     print(rating)
     print(Ratings.objects.all().filter(project__id=project_id))
     return HttpResponse()
+
+
+def logout_request(request):
+    logout(request)
+    return redirect('login')
+
