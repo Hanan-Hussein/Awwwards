@@ -23,24 +23,30 @@
         <li class="nav-item ">
             <a class="nav-link text-dark" href="{%url 'submit'%}">Post Your Work</a>
         </li> 
-        <li class="nav-item">
-            <a class="nav-link text-dark" href="{%url 'login' %}">Login</a>
-        </li> 
+     
+
+        {% if user_display.id %}
         <li class="nav-item dropdown ">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <div class="bit-img">
-                  {% if user_display.profiles.profilephoto %}
-                  <img src="{{user_display.profiles.profilephoto.url}}" alt="" class="img-resp">
-                  {% else %}
-                  <img src="{% static "profile.jpeg"%}"  alt="" class="img-resp">
-                  {% endif %}
-              </div>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="{%url "profile" %}">Profile</a></li>
-              <li><a class="dropdown-item" href="{%url "logout" %}">Log out</a></li>
-            </ul>
-          </li>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="bit-img">
+                {% if user_display.profiles.profilephoto %}
+                <img src="{{user_display.profiles.profilephoto.url}}" alt="" class="img-resp">
+                {% else %}
+                <img src="{% static "profile.jpeg"%}"  alt="" class="img-resp">
+                {% endif %}
+            </div>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="{%url "profile" %}">Profile</a></li>
+            <li><a class="dropdown-item" href="{%url "logout" %}">Log out</a></li>
+          </ul>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="{%url 'login' %}">Login</a>
+      </li> 
+        {% endif %}
+       
     </ul>
 
 </div>

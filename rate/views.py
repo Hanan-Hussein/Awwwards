@@ -14,7 +14,6 @@ from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
-@login_required
 def home(request):
     projects=Project.objects.all()
     user_display = request.user
@@ -87,7 +86,6 @@ def project_detail(request,id):
     print(projects.title)
     return render(request, 'details.html',context={"projects":projects,'ratings':reviews,'user_display':user_display} )
 
-@login_required
 def project_search(request):
     projects=Project.objects.all()
     if 'name' in request.GET and request.GET['name']:
@@ -142,7 +140,7 @@ def project_ratings(request, project_id):
 
 def logout_request(request):
     logout(request)
-    return redirect('login')
+    return redirect('home')
 
 @login_required
 def profile(request):
