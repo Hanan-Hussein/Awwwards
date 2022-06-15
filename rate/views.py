@@ -130,3 +130,22 @@ def project_ratings(request, project_id):
     print(rating)
     print(Ratings.objects.all().filter(project__id=project_id))
     return HttpResponse()
+
+def logout_request(request):
+    logout(request)
+    return redirect('login')
+
+@login_required
+def profile(request):
+    user_display=request.user
+    current_user = request.user
+    posts=Project.objects.filter(owner=current_user)
+    context = {
+    "user_details": current_user,
+    "user_display": user_display,
+    "posts": posts
+
+    }
+    return render(request,'profile.html', context=context)
+
+

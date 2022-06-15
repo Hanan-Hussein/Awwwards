@@ -189,3 +189,13 @@ header {
 .bg-cover {
   position: relative;
 }
+
+.img-div {
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 10rem;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 10rem;
+}

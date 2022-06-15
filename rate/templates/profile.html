@@ -10,12 +10,12 @@
                 <!-- Profile Picture -->
                 
                 <div class="img-div mx-0">
-                    {% if user_display.profile.profilephoto %}
+                    {% if user_display.profiles.profilephoto %}
                     
-                      <img src="{{user_display.profile.profilephoto.url}}" alt="" class="img-resp">
-                      {% else %}
-                      <img src="{% static 'profile.jpeg'}"  alt="" class="img-resp">
-                      {% endif %}
+                      <img src="{{user_display.profiles.profilephoto.url}}" alt="" class="img-resp">
+                    {% else %}
+                      <img src="{% static 'profile.jpeg'%}"  alt="" class="img-resp">
+                    {% endif %}
                 </div>
                 <!-- Side Description -->
                 <div>
@@ -34,18 +34,7 @@
                             {% else %}
                             0
                             {% endif %}</strong> posts </p>
-                        <p class="lead me-3"><strong> 
-                            {% if followers_number %}
-                            {{number}}
-                            {% else %}
-                            0
-                            {% endif %}  </strong> followers </p>
-                        <p class="lead"><strong>
-                            {% if followed_number %}
-                            {{followed_number}}
-                            {% else %}
-                            0
-                            {% endif %} </strong> following </p>
+                      
                     </div>
                     <div>
                         <p class="lead">
@@ -74,9 +63,11 @@
                         {% for post in posts %}
                         <div class="col-md-4">
                             <div class="card" >
-                                <a href="{%url 'details' post.id%}"><img class="card-img-top img-fluid img-responsive" src="{{post.image.url}}" alt="Card image cap">
+                                <a href="">
+                                    <img class="card-img-top img-fluid img-responsive" src="{{post.landing_page.url}}" alt="Card image cap">
                                 </a>                            </div>
                         </div>
+                      
                         {% endfor %}
                     </div>
                 </div>
