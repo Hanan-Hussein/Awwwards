@@ -145,7 +145,12 @@ header {
 .rating{
   background-color: #00A896;
   width: 5vw;
-  
+  display: flex;
+  justify-content:center;
+  padding: 0.5rem 1rem ;
+}
+.rating p {
+  margin-bottom: 0 !important;
 }
 .rating:hover, .rating p:hover{
   background-color: #F0F3BD;

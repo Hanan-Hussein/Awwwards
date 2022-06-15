@@ -11,6 +11,8 @@ urlpatterns = [
     path('search/',views.project_search,name='searchResults'),
     path("projects",views.project_list,name='projects'),
     path("all_users",views.all_users,name='allUsers'),
+    path('ratings/<project_id>', views.project_ratings,name='ratings'),
+
     
 
 

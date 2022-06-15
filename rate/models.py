@@ -56,11 +56,12 @@ class Project(models.Model):
 
 
 class Ratings(models.Model):
-    design = models.ForeignKey(
-        Project, related_name="design", null=True, on_delete=models.CASCADE)
-    usability = models.ForeignKey(
-        Project, related_name="usability", null=True, on_delete=models.CASCADE)
-    content = models.ForeignKey(
-        Project, related_name="content", null=True, on_delete=models.CASCADE)
+    project = models.ForeignKey(
+        Project, related_name="ratings", on_delete=models.CASCADE)
+    design = models.IntegerField(null=True)
+    usability = models.IntegerField(null=True)
+    content = models.IntegerField(null=True)
     user = models.ForeignKey(User, related_name="users",
-                             null=True, on_delete=models.CASCADE)
+                             on_delete=models.CASCADE)
+    def __str__(self) -> str:
+        return f"Design: {self.design} Usability: {self.usability} Content: {self.content}"
