@@ -1,16 +1,19 @@
 from multiprocessing import context
+import re
 from django.shortcuts import render
 from .forms import Registration, LoginForm, SubmitForm
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
-from .models import Project
+from .models import Project, Profile, Ratings
 from rest_framework.decorators import api_view
-from .serializers import ProjectSerializer
+from .serializers import ProjectSerializer, ProfileSerializer
 from rest_framework import status
 from rest_framework.response import Response
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
+from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 @login_required
 def home(request):
@@ -97,3 +100,32 @@ def project_list(request):
         serializer=ProjectSerializer(projects,many=True)
         return Response(serializer.data)
         # return JsonResponse({"projects":serializer.data},safe=False)
+
+@api_view(['GET','POST'])
+def all_users(request):
+    if request.method =='GET':
+        users=User.objects.all()
+        serializer=ProfileSerializer(users, many=True)
+        return Response(serializer.data)
+        
+
+@csrf_exempt
+def project_ratings(request, project_id):
+    current_user = request.user.id
+    # Returns a tuple the object is in the first position
+    rating = Ratings.objects.get_or_create(
+        user__id=current_user, project__id=project_id)[0]
+    type = request.POST.get('type')
+    value = request.POST.get('value')
+    if type == 'usability':
+        rating.usability = value
+        rating.save()
+    elif type == 'content':
+        rating.content = value
+        rating.save()
+    elif type == 'design':
+        rating.design = value
+        rating.save()
+    print(rating)
+    print(Ratings.objects.all().filter(project__id=project_id))
+    return HttpResponse()

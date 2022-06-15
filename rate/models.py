@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class Profile(models.Model):
     profilephoto = CloudinaryField("profilephoto")
     bio = models.TextField()
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User,  related_name='profiles' ,on_delete=models.CASCADE)
 
     def _str_(self):
         return self.user.username
