@@ -6,8 +6,11 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from .models import Project
-
-
+from rest_framework.decorators import api_view
+from .serializers import ProjectSerializer
+from rest_framework import status
+from rest_framework.response import Response
+from django.http import JsonResponse
 # Create your views here.
 @login_required
 def home(request):
@@ -86,3 +89,4 @@ def project_search(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search_results.html', {"message": message})
+

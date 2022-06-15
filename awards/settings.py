@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'bootstrap5',
     'rate',
     'django_htmx',
+    'rest_framework',
     'cloudinary'
 
 ]
