@@ -12,9 +12,12 @@
                         <button class="btn btn-primary mx-2 signup">Visit Site</button>
                     </a>
                     <button class="btn btn-primary signup" id="nowRate">Rate Now</button>
+                    
+
                 </div>
             </div>
         </header>
+        <!-- Rates -->
         <div class="allrates" id="allrates">
             <div class="d-flex justify-content-center rate">
                 <div class="rating  border ">
@@ -259,7 +262,9 @@
                     </p>
                 </div>
             </div>
+            <button class="btn btn-primary signup" id="vRate">View Ratings</button>
         </div>
+        <!-- Details -->
         <div class="container details-page">
             <p class=" h4 my-3 text-center">
                 {{ projects.title }}
@@ -268,7 +273,8 @@
                 {{ projects.description }}
             </p>
         </div>
-        <div class="d-flex justify-content-around table-responsive">
+        <!-- Table -->
+        <div class="d-flex justify-content-around table-responsive" id="tbody">
             <table class="table table-light align-middle table-borderless">
                 <thead>
                     <tr>
@@ -298,19 +304,20 @@
                                     {% else %}
                                         <img src="{% static "profile.svg" %}" alt="" class="img-resp">
                                     {% endif %}
-                                    
                                 </div>
-                               {{ rating.user }}
+                                {{ rating.user }}
                             </th>
-                            <td>
-                                {{ rating.usability }}/10
-                            </td>
-                            <td>
-                                {{ rating.design }}/10
-                            </td>
-                            <td>
-                                {{ rating.content }}/10
-                            </td>
+                            <div id="user{{rating.user.id}}">
+                                <td>
+                                    {{ rating.usability }}/10
+                                </td>
+                                <td>
+                                    {{ rating.design }}/10
+                                </td>
+                                <td>
+                                    {{ rating.content }}/10
+                                </td>
+                            </div>
                         </tr>
                     {% endfor %}
                 </tbody>

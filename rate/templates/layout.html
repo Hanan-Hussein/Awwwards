@@ -15,8 +15,7 @@
   <link href="http://fonts.cdnfonts.com/css/billabong" rel="stylesheet">
 
   </head>
-<body>
-
+  <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
   <div class="full-page">
     {%if messages%}
     {% for message in messages%}

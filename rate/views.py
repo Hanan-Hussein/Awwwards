@@ -12,7 +12,6 @@ from rest_framework import status
 from rest_framework.response import Response
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
-from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 def home(request):
     projects=Project.objects.all()
@@ -116,7 +115,6 @@ def all_users(request):
         return Response(serializer.data)
         
 
-@csrf_exempt
 def project_ratings(request, project_id):
     current_user = request.user
     project=Project.objects.all().get(id=project_id)
